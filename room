@@ -1,0 +1,43 @@
+class Room
+    
+    def initialize(number)
+        @capacity = number
+        @occupants = []
+        
+    end
+
+    def capacity
+        @capacity
+    end
+
+    def occupants
+        @occupants
+    end
+
+    def full?
+        if @capacity > @occupants.length
+            return false
+        end
+
+        if @occupants.length >= @capacity
+           return  true
+        end
+    end
+
+    def available_space
+     @capacity - @occupants.length
+    end
+
+    def add_occupant(name)
+        full = self.full?
+
+        if full == true
+            return false
+        end
+
+        if full == false
+            @occupants << name
+            return true
+        end
+    end
+end
